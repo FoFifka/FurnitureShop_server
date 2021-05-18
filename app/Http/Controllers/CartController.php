@@ -22,7 +22,7 @@ class CartController extends Controller
 
     public function getCartProducts(Request $request) {
         $cartproducts = CartProduct::get()->where('user_id', '=', $request['user_id']);
-        $cartproducts2 = [];
+        $cartproducts2 = [];;
 
         foreach ($cartproducts as $cartproduct) {
             $product = Product::find($cartproduct['product_id']);
@@ -34,7 +34,6 @@ class CartController extends Controller
                 'price' => $product['price'],
                 'image' => $product['image'],
                 'count' => $cartproduct['count'],
-
             ]);
         }
 
@@ -45,7 +44,7 @@ class CartController extends Controller
     public function removeCartProducts(Request $request) {
         $array = [];
         try {
-            for($i = 0; $i < 5; $i++) {
+            for($i = 0;true; $i++) {
                 array_push($array, $request[$i]);
                 if(is_null($request[$i])) {
                    break;

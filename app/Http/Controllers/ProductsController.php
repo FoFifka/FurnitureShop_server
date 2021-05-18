@@ -15,7 +15,7 @@ class ProductsController extends Controller
             array_push($products2, [
                 "id" => $product['id'],
                 "name" => $product['name'],
-                "description" => $product['name'],
+                "description" => $product['description'],
                 "image" => $product['image'],
                 "price" => $product['price'],
                 "old_price" => $product['old_price'],
