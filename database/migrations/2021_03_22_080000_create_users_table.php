@@ -18,8 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('surname');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->foreignId('permission_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->text('api_token')->nullable()->unique();
             $table->timestamp('expires_at')->nullable();
             $table->timestamps();

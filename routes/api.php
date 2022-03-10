@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/user', function (Request $request) {
-    $user = \App\Models\User::get()->where('api_token', '=', $request['token']);
+    $user = \App\Models\User::get()->where('api_token', $request['token']);
     $user2 = null;
     foreach ($user as $user1) {
         $user2 = $user1;
@@ -36,11 +36,14 @@ Route::post('/signup', [AuthController::class, 'signup']);
 // Categories
 
 Route::get('/getcategories', [CategoriesController::class, 'getCategories']);
+Route::post('/addcategory', [CategoriesController::class, 'addCategories']);
 
 // Products
 
 Route::post('/getproducts', [ProductsController::class, 'getProducts']);
 Route::post('/getproduct', [ProductsController::class, 'getProduct']);
+Route::post('/addproduct', [ProductsController::class, 'addProduct']);
+Route::post('/deleteproduct', [ProductsController::class, 'deleteProduct']);
 Route::post('/addcartproduct', [CartController::class, 'addCartProduct']);
 Route::post('/getcartproducts', [CartController::class, 'getCartProducts']);
 Route::post('/removecartproducts', [CartController::class, 'removeCartProducts']);

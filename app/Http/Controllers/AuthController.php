@@ -71,6 +71,7 @@ class AuthController extends Controller
             $user['surname'] = $userdata['surname'];
             $user['email'] = $userdata['email'];
             $user['password'] = Hash::make($userdata['password']);
+            $user['permission_id'] = 1;
             $user->save();
         } catch (\Exception $e) {
             return $e;
