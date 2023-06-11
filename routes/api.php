@@ -55,3 +55,6 @@ Route::post('/addorder', [OrdersController::class, 'addOrder']);
 Route::get('lala', function () {
    return Hash::make('sergo');
 });
+
+
+// -> comment 11.06.23 По некоторым причинам, get, delete сделаны через Post. Это связанно с тем что Volley при get запросах не передовал параметры. Сделано убого
